@@ -1,0 +1,49 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="row w-100">
+    <div class="col-md-6 mx-auto">
+      <div class="card p-4 shadow-lg">
+        <h2 class="text-center mb-4">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" autocomplete="on">
+          <!-- Email input -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              placeholder="Enter your email"
+              required
+              autocomplete="email" 
+            />
+            <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-danger">
+              A valid email is required.
+            </div>
+          </div>
+
+          <!-- Password input -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              placeholder="Enter your password"
+              required
+              autocomplete="current-password" 
+            />
+            <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger">
+              Password is required.
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-success w-100" [disabled]="loginForm.invalid">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

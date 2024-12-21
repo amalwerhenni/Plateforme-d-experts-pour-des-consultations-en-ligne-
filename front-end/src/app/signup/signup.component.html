@@ -1,0 +1,161 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="row w-100">
+      <div class="col-md-6 mx-auto">
+        <div class="card p-4 shadow-lg">
+          <h2 class="text-center mb-4">Sign Up</h2>
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <!-- Name input -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                formControlName="name"
+                placeholder="Enter your full name"
+                required
+              />
+              <div *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid" class="text-danger">
+                Name is required.
+              </div>
+            </div>
+  
+            <!-- Email input -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                placeholder="Enter your email"
+                required
+              />
+              <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid" class="text-danger">
+                A valid email is required.
+              </div>
+            </div>
+  
+            <!-- Username input -->
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                formControlName="username"
+                placeholder="Choose a username"
+                required
+              />
+              <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid" class="text-danger">
+                Username is required.
+              </div>
+            </div>
+  
+            <!-- Password input -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                formControlName="password"
+                placeholder="Enter your password"
+                required
+              />
+              <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid" class="text-danger">
+                Password is required.
+              </div>
+            </div>
+  
+            <!-- Role selection -->
+            <div class="mb-3">
+              <label for="role" class="form-label">Role</label>
+              <select
+                id="role"
+                formControlName="role"
+                class="form-select"
+                (change)="onRoleChange()"
+                required
+              >
+                <option value="USER">User</option>
+                <option value="EXPERT">Expert</option>
+              </select>
+              <div *ngIf="signupForm.get('role')?.touched && signupForm.get('role')?.invalid" class="text-danger">
+                Role is required.
+              </div>
+            </div>
+  
+            <!-- Expert-specific fields -->
+            <div *ngIf="isExpert">
+              <!-- Domain input -->
+              <div class="mb-3">
+                <label for="domain" class="form-label">Domain</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="domain"
+                  formControlName="domain"
+                  placeholder="Enter your expertise domain"
+                />
+                <div *ngIf="signupForm.get('domain')?.touched && signupForm.get('domain')?.invalid" class="text-danger">
+                  Domain is required for Experts.
+                </div>
+              </div>
+  
+              <!-- Location input -->
+              <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  formControlName="location"
+                  placeholder="Enter your location"
+                />
+                <div *ngIf="signupForm.get('location')?.touched && signupForm.get('location')?.invalid" class="text-danger">
+                  Location is required for Experts.
+                </div>
+              </div>
+  
+              <!-- Availability input -->
+              <div class="mb-3">
+                <label for="availability" class="form-label">Availability</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="availability"
+                  formControlName="availability"
+                  placeholder="Enter your availability"
+                />
+                <div *ngIf="signupForm.get('availability')?.touched && signupForm.get('availability')?.invalid" class="text-danger">
+                  Availability is required for Experts.
+                </div>
+              </div>
+  
+              <!-- Price input -->
+              <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  formControlName="price"
+                  placeholder="Enter your price"
+                />
+                <div *ngIf="signupForm.get('price')?.touched && signupForm.get('price')?.invalid" class="text-danger">
+                  Price is required for Experts.
+                </div>
+              </div>
+            </div>
+  
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-success w-100" [disabled]="signupForm.invalid">
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

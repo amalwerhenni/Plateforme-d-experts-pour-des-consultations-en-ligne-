@@ -1,0 +1,54 @@
+/* Sidebar styling */
+.sidebar {
+  width: 250px; /* Largeur de la sidebar */
+  height: 100vh; /* Pleine hauteur */
+  top: 0;
+  left: 0;
+  z-index: 100; /* Pour qu'il soit au-dessus du contenu */
+  background-color: #343a40; /* Couleur de fond de la sidebar */
+}
+
+.sidebar .nav-link {
+  color: #ffffff; /* Couleur des liens */
+  font-weight: 500; /* Légèrement plus gras */
+  padding: 10px 15px; /* Espacement interne des liens */
+  transition: background-color 0.3s; /* Transition lors du survol */
+}
+
+.sidebar .nav-link:hover {
+  background-color: #495057; /* Couleur de survol des liens */
+}
+
+.sidebar .btn {
+  background-color: #dc3545; /* Couleur du bouton */
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 12px 0;
+  transition: background-color 0.3s;
+}
+
+.sidebar .btn:hover {
+  background-color: #c82333; /* Couleur de survol du bouton */
+}
+
+.sidebar .nav-item {
+  margin-bottom: 20px; /* Espacement entre les éléments de la sidebar */
+}
+
+.sidebar h4 {
+  color: #f8f9fa; /* Couleur du titre de la sidebar */
+}
+
+/* Main content adjustment */
+.flex-grow-1 {
+  margin-left: 250px; /* Décalage du contenu principal pour faire de la place pour la sidebar */
+}
+
+.navbar {
+  margin-left: 250px; /* Pour compenser la largeur de la sidebar */
+}
+
+.container {
+  margin-left: 0; /* Réinitialiser les marges sur la zone de contenu */
+}
